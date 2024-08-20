@@ -23,6 +23,6 @@ export class EmployeeService {
   }
 
   deleteEmployee(id: number): Observable<any> {
-    return this._http.delete(`https://vercel-fedk.vercel.app/data${id}`);
+    return this._http.delete(`https://vercel-fedk.vercel.app/data/${id}`);
   }
 }

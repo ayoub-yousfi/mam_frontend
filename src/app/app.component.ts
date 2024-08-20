@@ -14,9 +14,9 @@ import { CoreService } from './core/core.service';
 })
 export class AppComponent implements OnInit {
   displayedColumns: string[] = [
-    'id',
+    //'id',
     'firstName',
-    'lastName',
+    //'lastName',
     'email',
     //'dob',
     //'gender',
