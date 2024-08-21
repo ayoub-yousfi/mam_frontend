@@ -14,16 +14,16 @@ import { CoreService } from './core/core.service';
 })
 export class AppComponent implements OnInit {
   displayedColumns: string[] = [
+    'article',
     //'id',
-    'firstName',
+    //'firstName',
     //'lastName',
+    'quantity',
     'email',
     //'dob',
-    //'gender',
     //'education',
     //'company',
     //'experience',
-    'package',
     'action',
   ];
   dataSource!: MatTableDataSource<any>;
@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
   deleteEmployee(id: number) {
     this._empService.deleteEmployee(id).subscribe({
       next: (res) => {
-        this._coreService.openSnackBar('Employee deleted!', 'done');
+        this._coreService.openSnackBar('Article deleted!', 'done');
         this.getEmployeeList();
       },
       error: console.log,
