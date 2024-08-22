@@ -13,6 +13,9 @@ import { CoreService } from './core/core.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+
+  isSaleOperation: boolean = false; // Variable to track if it's a sale operation
+
   displayedColumns: string[] = [
     'article',
     //'id',
@@ -41,8 +44,12 @@ export class AppComponent implements OnInit {
     this.getEmployeeList();
   }
 
-  openAddEditEmpForm() {
-    const dialogRef = this._dialog.open(EmpAddEditComponent);
+openAddEditEmpForm(isSale: boolean) {
+    this.isSaleOperation = isSale;
+    const dialogRef = this._dialog.open(EmpAddEditComponent, {
+      data: { isSale: this.isSaleOperation } // Pass the information to the dialog
+    });
+
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {

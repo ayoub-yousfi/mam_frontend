@@ -10,6 +10,8 @@ import { EmployeeService } from '../services/employee.service';
   styleUrls: ['./emp-add-edit.component.scss'],
 })
 export class EmpAddEditComponent implements OnInit {
+  isSale: boolean;
+
   empForm: FormGroup;
 
   education: string[] = [
@@ -27,17 +29,18 @@ export class EmpAddEditComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _coreService: CoreService
   ) {
+    this.isSale = data.isSale,
     this.empForm = this._fb.group({
-      firstName: '',
-      lastName: '',
+      //firstName: '',
+      //lastName: '',
       article:'',
       quantity:'',
       price:'',
-      email: '',
-      dob: '',
-      education: '',
-      company: '',
-      experience: '',
+      //email: '',
+      //dob: '',
+      //education: '',
+      //company: '',
+      //experience: '',
     });
   }
 

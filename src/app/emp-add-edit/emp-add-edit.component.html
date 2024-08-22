@@ -25,7 +25,7 @@
                 <mat-label>quantité</mat-label>
                 <input matInput placeholder="Ex. 12" formControlName="quantity">
             </mat-form-field>
-            <mat-form-field appearance="outline">
+            <mat-form-field  *ngIf="!isSale" appearance="outline">
                 <mat-label>prix</mat-label>
                 <input matInput placeholder="Ex. 40" formControlName="price">
             </mat-form-field>

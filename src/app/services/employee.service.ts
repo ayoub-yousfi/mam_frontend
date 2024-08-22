@@ -10,19 +10,19 @@ export class EmployeeService {
 
   addEmployee(data: any): Observable<any> {
     
-    return  this._http.post('https://vercel-fedk.vercel.app/data', data);
+    return  this._http.post('http://localhost:3000/data', data);
 
   }
 
   updateEmployee(id: number, data: any): Observable<any> {
-    return this._http.put(`https://vercel-fedk.vercel.app/data/${id}`, data);
+    return this._http.put(`http://localhost:3000/data/${id}`, data);
   }
 
   getEmployeeList(): Observable<any> {
-    return this._http.get('https://vercel-fedk.vercel.app/data');
+    return this._http.get('http://localhost:3000/data');
   }
 
   deleteEmployee(id: number): Observable<any> {
-    return this._http.delete(`https://vercel-fedk.vercel.app/data/${id}`);
+    return this._http.delete(`http://localhost:3000/data/${id}`);
   }
 }

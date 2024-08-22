@@ -2,7 +2,10 @@
 <mat-toolbar color="primary">
   <span>MAM Elegance</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button (click)="openAddEditEmpForm()">
+  <button mat-raised-button (click)="openAddEditEmpForm(true)" style="margin-right: 10px;">
+    ajouter une vente 
+  </button>
+  <button mat-raised-button (click)="openAddEditEmpForm(false)">
     ajouter un article
   </button>
 </mat-toolbar>
