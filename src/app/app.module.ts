@@ -21,9 +21,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SaleComponent } from './sale/sale.component';
 
 @NgModule({
-  declarations: [AppComponent, EmpAddEditComponent],
+  declarations: [AppComponent, EmpAddEditComponent, SaleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

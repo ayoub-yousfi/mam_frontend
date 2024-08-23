@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EmpAddEditComponent } from './emp-add-edit/emp-add-edit.component';
 import { EmployeeService } from './services/employee.service';
@@ -15,15 +16,8 @@ import { CoreService } from './core/core.service';
 export class AppComponent implements OnInit {
   displayedColumns: string[] = [
     'article',
-    //'id',
-    //'firstName',
-    //'lastName',
     'quantity',
     'email',
-    //'dob',
-    //'education',
-    //'company',
-    //'experience',
     'action',
   ];
   dataSource!: MatTableDataSource<any>;
@@ -31,14 +25,24 @@ export class AppComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  showDefaultContent = true; // Flag to control content visibility
+
   constructor(
     private _dialog: MatDialog,
     private _empService: EmployeeService,
-    private _coreService: CoreService
+    private _coreService: CoreService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getEmployeeList();
+
+    // Subscribe to router events
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.showDefaultContent = !event.url.includes('/sale');
+      }
+    });
   }
 
   openAddEditEmpForm() {

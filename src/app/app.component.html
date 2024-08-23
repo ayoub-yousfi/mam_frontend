@@ -2,6 +2,9 @@
 <mat-toolbar color="primary">
   <span>MAM Elegance</span>
   <span class="example-spacer"></span>
+  <button mat-raised-button (click)="openAddEditEmpForm()" style="margin-right: 10px;">
+    ajouter une vente
+  </button>
   <button mat-raised-button (click)="openAddEditEmpForm()">
     ajouter un article
   </button>
@@ -10,7 +13,7 @@
 
 
 
-<div class="main-body">
+<div  *ngIf="showDefaultContent" class="main-body">
   <mat-form-field>
     <mat-label>Filtrer</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
@@ -94,3 +97,5 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
 </div>
+
+<router-outlet></router-outlet>
